@@ -71,7 +71,7 @@ public class GradeItem {
    /**
       * getID() - Accessor for id
       *
-      * @return id
+      * @return id - the Student's unique ID
    */   
    public String getID() {
       return id;
@@ -81,7 +81,7 @@ public class GradeItem {
    /**
       * getGradeItemID() - Accessor for gradeItemID
       *
-      * @return gradeItemID
+      * @return gradeItemID - The assignment's ID
    */ 
    public int getGradeItemID() {
       return gradeItemID;
@@ -91,7 +91,7 @@ public class GradeItem {
    /**
       * getCourseID() - Accessor for courseID
       *
-      * @return courseID
+      * @return courseID - The course's ID
    */
    public String getCourseID() {
       return courseID;
@@ -101,7 +101,7 @@ public class GradeItem {
    /**
       * getItemType() - Accessor for itemType
       *
-      * @return itemType
+      * @return itemType - The type of assignment for categorization
    */
    public String getItemType() {
       return itemType;
@@ -111,7 +111,7 @@ public class GradeItem {
    /**
       * getDate() - Accessor for date
       *
-      * @return date
+      * @return date - The date of assignment
    */
    public String getDate() {
       return date;
@@ -121,7 +121,7 @@ public class GradeItem {
    /**
       * getMaxScore() - Accessor for maxScore
       *
-      * @return maxScore
+      * @return maxScore - The maximum possible score
    */
    public int getMaxScore() {
       return maxScore;
@@ -131,7 +131,7 @@ public class GradeItem {
    /**
       * getActualScore() - Accessor for actualScore
       *
-      * @return actualScore
+      * @return actualScore - The score that the student achieved
    */
    public int getActualScore() {
       return actualScore;
@@ -141,7 +141,7 @@ public class GradeItem {
    /**
       * equals() - Compares the Student IDs of both objects to see if they are unique
       * @param other - Refers to the "other" GradeItem object
-      * @return itemType
+      * @return isEqual - Returns whether or not the two ID's are equal
    */
    public boolean equals (GradeItem other) {
       boolean isEqual = id.equals(other.id);
@@ -152,7 +152,7 @@ public class GradeItem {
 
    /**
       * toString() - Creates a printable string with variables from GradeItem object.
-      * @return String
+      * @return String - A string communicating the contents of the GrateItem object.
    */
    public String toString() {
       return "Student ID: " + id + 

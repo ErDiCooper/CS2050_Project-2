@@ -49,7 +49,7 @@ public class Student {
    /**
       * getID() - Accessor for id
       *
-      * @return id
+      * @return id - The Student's unique ID number
    */
    public String getID() {
       return id;
@@ -59,7 +59,7 @@ public class Student {
    /**
       * getFirstName() - Accessor for firstName 
       *
-      * @return firstName
+      * @return firstName - The Student's first name
    */ 
    public String getFirstName() {
      return firstName;
@@ -69,7 +69,7 @@ public class Student {
    /**
       * getLastName() - Accessor for lastName 
       *
-      * @return lastName
+      * @return lastName - The Student's last name
    */ 
    public String getLastName() {
       return lastName;
@@ -79,7 +79,7 @@ public class Student {
    /**
       * getEmail() - Accessor for email
       *
-      * @return email
+      * @return email - The Student's email address
    */ 
    public String getEmail() {
       return email;
@@ -89,7 +89,7 @@ public class Student {
    /**
       * equals() - Compares the Student IDs of both objects to see if they are unique
       * @param other - Refers to the "other" Student object
-      * @return itemType
+      * @return isEquals - Whether or not the two ID's are equal
    */
    public boolean equals (Student other) {
       boolean isEqual = id.equals(other.id);
@@ -100,7 +100,7 @@ public class Student {
 
    /**
       * toString() - Creates a printable string with variables from Studen object.
-      * @return String
+      * @return String - A string communicating the contents of the Student object.
    */
    public String toString() {
       return "Student ID: " + id + 

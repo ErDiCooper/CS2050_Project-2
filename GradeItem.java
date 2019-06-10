@@ -156,12 +156,13 @@ public class GradeItem {
       * @return String - A string communicating the contents of the GrateItem object.
    */
    public String toString() {
-      return "Student ID: " + id + 
-             "\nCourse ID: " + courseID + 
-             "\nAssignment Type: " + itemType +
-             "\nGrade ID: " + gradeItemID +
-             "\nDate Assigned: " + date +
-             "\nScore: " + actualScore + " out of " + maxScore;
+      return "GradeItem{gradeItemID=" + gradeItemID
+             ",id=" + id + 
+             ",courseID=" + courseID + 
+             ",itemType=" + itemType +
+             ",date=" + date +
+             ",maxScore=" + maxScore + 
+             ",actualScore=" + actualScore + "}";
    } // End of toString.
    
 } // End of GradeItem class.

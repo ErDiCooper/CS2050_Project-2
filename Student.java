@@ -105,8 +105,8 @@ public class Student {
       * @return String - A string communicating the contents of the Student object.
    */
    public String toString() {
-      return "Student ID: " + id + 
-             " Name: " + firstName + " " + lastName + 
-             " Email: " + email;
+      return "Student{id=" + id + 
+             ",firstName=" + firstName + ",lastName=" + lastName + 
+             ",emailAddress=" + email + "}";
    } // End of toString.
 } // End of Student class.

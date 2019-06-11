@@ -61,6 +61,7 @@ public class GradeItem {
          }
       }
       
+      id = studentID;
       gradeItemID = Integer.parseInt(assignment);
       courseID = course;
       if (assignmentType.equals("HW") || assignmentType.equals("Quiz") ||

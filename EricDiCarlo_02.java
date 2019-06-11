@@ -28,12 +28,12 @@ public class EricDiCarlo_02 {
       gradeItem1 = new GradeItem("900123456", "1", "23456", "HW", "20190112", "100", "95");
       System.out.println(gradeItem1.toString());
       
-      System.out.println("*******************************************************************");
+      System.out.println("\n*******************************************************************\n");
       
       System.out.println("Running Test 2a:");
       System.out.println("Running Test 2b:");
       
-      System.out.println("*******************************************************************");
+      System.out.println("\n*******************************************************************\n");
       
       System.out.println("Running Test 3a:");
       System.out.println("Running Test 3b:");

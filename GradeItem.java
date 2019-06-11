@@ -1,26 +1,25 @@
 import java.util.Arrays;
-import Java.util.Objects;
 
 public class GradeItem {
    
    // Declaration of variables.
    private String id; // Student ID associated with this GradeItem.
-   private Integer gradeItemID; // ID given to this GradeItem.
+   private int gradeItemID; // ID given to this GradeItem.
    private String courseID; // ID given to this course.
    private String itemType; // The type of assignment.
    private String date; // Date of assignment.
-   private Integer maxScore; // The maximum possible score.
-   private Integer actualScore; // The score achieved.
+   private int maxScore; // The maximum possible score.
+   private int actualScore; // The score achieved.
    
    private String allowedItemTypes[] = new String[] {"HW", "Quiz",
                                            "Class Work", "Test", 
                                            "Final"}; // Array of acceptable assignment types.
   
    // Constructor for class object.
-   public GradeItem(String studentID, Integer assignment,
+   public GradeItem(String studentID, String assignment,
                   String course, String assignmentType,
-                  String dateAssigned, Integer pointsPossible,
-                  Integer pointsEarned) {
+                  String dateAssigned, String pointsPossible,
+                  String pointsEarned) {
       
       // Begin ensuring that each String is populated.
       if (studentID == null || studentID.length() == 0) {
@@ -37,10 +36,18 @@ public class GradeItem {
       } // Finish testing for unpopulated Strings.
       
       // Begin validating possibility of scores.
-      if (pointsPossible == null || pointsPossible <= 0) {
+      if (pointsPossible == null) {
+         throw new IllegalArgumentException("Maximum points possible is missing.");
+      }
+      if (Integer.parseInt(pointsPossible) <= 0) {
          throw new IllegalArgumentException(pointsPossible + " is not a valid maximum score.");
       }
-      if (pointsEarned == null || pointsEarned < 0 || pointsEarned > pointsPossible) {
+      if (pointsEarned == null) {
+         throw new IllegalArgumentException("The student's achieved score is missing.");
+      }
+      if (Integer.parseInt(pointsEarned) > Integer.parseInt(pointsPossible) || 
+          Integer.parseInt(pointsEarned) < 0) {
+         
          throw new IllegalArgumentException(pointsEarned + "is not a possible score to achieve.");
       } // Finished validating scores.
       
@@ -54,7 +61,7 @@ public class GradeItem {
          }
       }
       
-      gradeItemID = assignment;
+      gradeItemID = Integer.parseInt(assignment);
       courseID = course;
       if (assignmentType.equals("HW") || assignmentType.equals("Quiz") ||
           assignmentType.equals("Class Work") || assignmentType.equals("Test") ||
@@ -63,8 +70,8 @@ public class GradeItem {
           itemType = assignmentType;
           }
       date = dateAssigned;
-      maxScore = pointsPossible;
-      actualScore = pointsEarned;
+      maxScore = Integer.parseInt(pointsPossible);
+      actualScore = Integer.parseInt(pointsEarned);
       
    } // End of constructor.
 //*****************************************************************************************
@@ -156,7 +163,7 @@ public class GradeItem {
       * @return String - A string communicating the contents of the GrateItem object.
    */
    public String toString() {
-      return "GradeItem{gradeItemID=" + gradeItemID
+      return "GradeItem{gradeItemID=" + gradeItemID + 
              ",id=" + id + 
              ",courseID=" + courseID + 
              ",itemType=" + itemType +

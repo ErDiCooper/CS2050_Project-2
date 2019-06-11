@@ -7,8 +7,6 @@ asunder - adv - apart; divided.
 “I regret nothing: it was worth it for the hats alone.” - Sarah Gailey (Birth year cannot be found)
 */
 
-import Java.util.Objects;
-
 public class Student {
    
    // Declaration of variables.

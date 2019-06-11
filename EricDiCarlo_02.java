@@ -4,22 +4,29 @@ import java.io.*;
 
 public class EricDiCarlo_02 {
 
-   public static void main(String[] args) {
-   
-      private Student student1;
-      private Student student2;
+   private Student student1;
+   private Student student2;
       
-      private GradeItem gradeItem1;
-      private GradeItem gradeItem2;
+   private GradeItem gradeItem1;
+   private GradeItem gradeItem2;
       
-      private final String INPUT_FILENAME = "Project_02_Input01.txt";
+   private final String INPUT_FILENAME = "Project_02_Input01.txt";
+
+   public static void main(String[] args) {   
    
+      Student student1;
+      Student student2;
+      
+      GradeItem gradeItem1;
+      GradeItem gradeItem2;
+      
+      final String INPUT_FILENAME = "Project_02_Input01.txt";
       
       
       System.out.println("Running Test 1a:");
       System.out.println("Running Test 1b:");
-      GradeItem1 = new GradeItem("900123456", 1, "23456", "HW", "20190112", 100, 95);
-      System.out.println(GradeItem1.toString());
+      gradeItem1 = new GradeItem("900123456", "1", "23456", "HW", "20190112", "100", "95");
+      System.out.println(gradeItem1.toString());
       
       System.out.println("*******************************************************************");
       
@@ -35,17 +42,17 @@ public class EricDiCarlo_02 {
    
    }
    
-   public static void proccessStudentData(String[] data) {
+   public void proccessStudentData(String[] data) {
       // STUB STUB STUB
    }
    
-   public static void proccessGradeItemData(String[] data) {
+   public void proccessGradeItemData(String[] data) {
       if(!data[0].equals("GRADE ITEM") || !data[1].equals("ADD")) {
          throw new IllegalArgumentException("This function is only meant to add new Grade Items." +
                                             " Please try again with the correct file input.");
       }
       
-      GradeItem1 = new GradeItem(data[0], data[1], data[2], data[3],
-                                 data[4], data[5], data[6]);
+      gradeItem1 = new GradeItem(data[4], data[3], data[5], data[6],
+                                 data[7], data[8], data[9]);
    }
 }

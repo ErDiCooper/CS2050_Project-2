@@ -11,12 +11,17 @@ public class EricDiCarlo_02 {
    private static GradeItem gradeItem2;
    
 
-   public static void main(String[] args) {   
+   public static void main(String[] args) throws FileNotFoundException{   
    
       final String INPUT_FILENAME = "Project_02_Input01.txt";
       final String INPUT_FILENAME2 = "Project_02_Input02.txt";
       
+      File inputFileOne = new File(INPUT_FILENAME);
+      Scanner inputOne = new Scanner(inputFileOne);
+      
       System.out.println("Running Test 1a:");
+      
+      
       System.out.println("Running Test 1b:");
       gradeItem1 = new GradeItem("900123456", "1", "23456", "HW", "20190112", "100", "95");
       System.out.println(gradeItem1.toString());

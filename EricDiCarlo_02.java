@@ -14,6 +14,7 @@ public class EricDiCarlo_02 {
    public static void main(String[] args) {   
    
       final String INPUT_FILENAME = "Project_02_Input01.txt";
+      final String INPUT_FILENAME2 = "Project_02_Input02.txt";
       
       System.out.println("Running Test 1a:");
       System.out.println("Running Test 1b:");
@@ -41,11 +42,22 @@ public class EricDiCarlo_02 {
       */
    }
    
-   public static void proccessStudentData(String[] data) {
+   public static void processStudentData(String[] data) {
       // STUB STUB STUB
    }
    
-   public static void proccessGradeItemData(GradeItem grade, String[] data) {    
-      grade = new GradeItem(data[3], data[2], data[4], data[5], data[6], data[7], data[8]);
+   public static void processGradeItemData(GradeItem grade, String[] data) {
+      if(!data[0].equals("GRADE ITEM")) {
+         throw new IllegalArgumentException("The data provided was not meant for the Grade Item type.");
+      }
+      if(!data[1].equals("ADD")) {
+         throw new IllegalArgumentException("This function is only able to ADD data, not remove it.");
+      }
+      try {
+         grade = new GradeItem(data[3], data[2], data[4], data[5], data[6], data[7], data[8]);
+      }
+      catch (IllegalArgumentException e) {
+         System.err.println(e);
+      }
    }
 }

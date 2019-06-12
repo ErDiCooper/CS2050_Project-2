@@ -16,10 +16,16 @@ public class EricDiCarlo_02 {
       final String INPUT_FILENAME = "Project_02_Input01.txt";
       final String INPUT_FILENAME2 = "Project_02_Input02.txt";
       
+      String tempString;
       String[] tempArray;
+      String tempString2;
+      String[] tempArray2;
       
       File inputFileOne = new File(INPUT_FILENAME);
       Scanner inputOne = new Scanner(inputFileOne);
+      
+      File inputFileTwo = new File(INPUT_FILENAME2);
+      Scanner inputTwo = new Scanner(inputFileTwo);
       
       System.out.println("Running Test 1a:");
       student1 = new Student("900123456", "Joe", "Doe", "joedoe@msudenver.edu");
@@ -32,11 +38,13 @@ public class EricDiCarlo_02 {
       
       System.out.println("\n*******************************************************************\n");
       
-      System.out.println("Running Test 2a:");
-      String tempString = inputOne.nextLine();
-      tempArray = tempString.split(",");
-      processStudentData(tempArray);
-      
+      System.out.println("Running Test 2a:");  
+      tempString = inputOne.nextLine();
+      tempArray = tempString.split(",");     
+      tempString2 = inputTwo.nextLine();
+      tempArray2 = tempString2.split(",");
+      processStudentData(tempArray, tempArray2);
+          
       System.out.println("Student Object Data");
       System.out.println(student1.getID());
       System.out.println(student1.getFirstName());
@@ -47,7 +55,9 @@ public class EricDiCarlo_02 {
       System.out.println("Running Test 2b:");
       tempString = inputOne.nextLine();
       tempArray = tempString.split(",");
-      processGradeItemData(tempArray);
+      tempString2 = inputTwo.nextLine();
+      tempArray2 = tempString2.split(",");
+      processGradeItemData(tempArray, tempArray2);
       
       System.out.println("GradeItem Data");
       System.out.println(gradeItem1.getGradeItemID());
@@ -62,43 +72,69 @@ public class EricDiCarlo_02 {
       
       System.out.println("\n*******************************************************************\n");
       
-      System.out.println("Running Test 3a:");
-      System.out.println("Running Test 3b:");
-      /*
-      if (gradeItem1.equals(gradeItem2)) {
-         System.out.println("GradeItem objects are equal: Student IDs are" + GradeItem1.id);
+      System.out.println("Running Test 3a:");      
+      if (student1.equals(student1)) {
+         System.out.println("Student objects are equal: Student IDs are " + student1.getID());
       }
       else {
-         System.out.println("GradeItem objects are unequal: Student IDs are " + GradeItem1.id +
-                            " and " + GradeItem2.id);
-      }   
-      */
+         System.out.println("Student objects are unequal: Student IDs are " + student1.getID() +
+                            " and " + student2.getID());
+      }
+      if (student1.equals(student2)) {
+         System.out.println("Student objects are equal: Student IDs are " + student1.getID());
+      }
+      else {
+         System.out.println("Student objects are unequal: Student IDs are " + student1.getID() +
+                            " and " + student2.getID());
+      }
+      
+      
+      
+      System.out.println("\nRunning Test 3b:");
+      if (gradeItem1.equals(gradeItem1)) {
+         System.out.println("GradeItem objects are equal: Student IDs are " + gradeItem1.getID());
+      }
+      else {
+         System.out.println("GradeItem objects are unequal: Student IDs are " + gradeItem1.getID() +
+                            " and " + gradeItem2.getID());
+      }
+      if (gradeItem1.equals(gradeItem2)) {
+         System.out.println("GradeItem objects are equal: Student IDs are " + gradeItem1.getID());
+      }
+      else {
+         System.out.println("GradeItem objects are unequal: Student IDs are " + gradeItem1.getID() +
+                            " and " + gradeItem2.getID());
+      }
    }
    
-   public static void processStudentData(String[] data) {
-      if(!data[0].equals("STUDENT")) {
+   
+   
+   public static void processStudentData(String[] data, String[] data2) {
+      if(!data[0].equals("STUDENT") || !data2[0].equals("STUDENT")) {
          throw new IllegalArgumentException("The data provided was incompatible with the Student type.");
       }
-      if(!data[1].equals("ADD")) {
+      if(!data[1].equals("ADD") || !data2[1].equals("ADD")) {
          throw new IllegalArgumentException("This function is only able to ADD data, not remove it.");
       }
       try {
          student1 = new Student(data[2], data[3], data[4], data[5]);
+         student2 = new Student(data2[2], data2[3], data2[4], data2[5]);
       }
       catch (IllegalArgumentException e) {
          System.err.println(e);
       }
    }
    
-   public static void processGradeItemData(String[] data) {
-      if(!data[0].equals("GRADE ITEM")) {
+   public static void processGradeItemData(String[] data, String[] data2) {
+      if(!data[0].equals("GRADE ITEM") || !data2[0].equals("GRADE ITEM") ) {
          throw new IllegalArgumentException("The data provided was incompatible with the Grade Item type.");
       }
-      if(!data[1].equals("ADD")) {
+      if(!data[1].equals("ADD") || !data2[1].equals("ADD")) {
          throw new IllegalArgumentException("This function is only able to ADD data, not remove it.");
       }
       try {
          gradeItem1 = new GradeItem(data[3], data[2], data[4], data[5], data[6], data[7], data[8]);
+         gradeItem2 = new GradeItem(data2[3], data2[2], data2[4], data2[5], data2[6], data2[7], data2[8]);
       }
       catch (IllegalArgumentException e) {
          System.err.println(e);

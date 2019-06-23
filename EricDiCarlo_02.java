@@ -13,7 +13,7 @@ public class EricDiCarlo_02 {
 
    public static void main(String[] args) throws FileNotFoundException{   
    
-      final String INPUT_FILENAME = "Project_02_Input01.txt"; // The initial input file, provided by Project 2 guidelines
+      final String INPUT_FILENAME = "Project_02_Input01.txt"; // The initial input file, provided by guidelines
       final String INPUT_FILENAME2 = "Project_02_Input02.txt"; // The second input file, made by students
       
       String tempString; // Data from Scanner inputOne is stored here

@@ -10,10 +10,10 @@ asunder - adv - apart; divided.
 public class Student {
    
    // Declaration of variables.
-   private String id; // Student ID for Student object.
+   private String id;        // Student ID for Student object.
    private String firstName; // Student's first name.
-   private String lastName; // Student's last name.
-   private String email; // Student's email address.
+   private String lastName;  // Student's last name.
+   private String email;     // Student's email address.
   
    // Constructor for class object.
    public Student(String studentID,
@@ -36,7 +36,8 @@ public class Student {
       } // Finish testing for unpopulated Strings.
       
       if (!studentEmail.contains("@")) { // Ensure that the email is properly formatted.
-         throw new IllegalArgumentException("Student's email was entered incorrectly.");
+         throw new IllegalArgumentException("\"" + studentEmail + "\" is missing the " +
+                                            "necessary @ symbol.");
       }
       
       id = studentID;
@@ -87,12 +88,15 @@ public class Student {
 //*****************************************************************************************
    
    /**
-      * equals() - Compares the Student IDs of both objects to see if they are unique
+      * equals() - Compares both objects to see if they are unique
       * @param other - Refers to the "other" Student object
       * @return isEquals - Whether or not the two ID's are equal
    */
    public boolean equals (Student other) {
-      boolean isEqual = id.equals(other.id);
+      boolean isEqual = (this.getID()).equals(other.getID());
+      isEqual = (this.getFirstName()).equals(other.getFirstName());
+      isEqual = (this.getLastName()).equals(other.getLastName());
+      isEqual = (this.getEmail()).equals(other.getEmail());
             
       return isEqual;
    } // End of equals.

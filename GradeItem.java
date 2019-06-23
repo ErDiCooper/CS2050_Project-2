@@ -36,40 +36,34 @@ public class GradeItem {
       } // Finish testing for unpopulated Strings.
       
       // Begin validating possibility of scores.
-      if (pointsPossible == null) {
-         throw new IllegalArgumentException("Maximum points possible is missing.");
-      }
       if (Integer.parseInt(pointsPossible) <= 0) {
          throw new IllegalArgumentException(pointsPossible + " is not a valid maximum score.");
       }
-      if (pointsEarned == null) {
-         throw new IllegalArgumentException("The student's achieved score is missing.");
-      }
-      if (Integer.parseInt(pointsEarned) > Integer.parseInt(pointsPossible) || 
-          Integer.parseInt(pointsEarned) < 0) {
-         
-         throw new IllegalArgumentException(pointsEarned + "is not a possible score to achieve.");
+      if (Integer.parseInt(pointsEarned) > Integer.parseInt(pointsPossible)) {
+         throw new IllegalArgumentException(pointsEarned + "is greater than the maximum possible score.");
+      } 
+      if (Integer.parseInt(pointsEarned) < 0) {
+         throw new IllegalArgumentException(pointsEarned + "is less than 0, the minimum allowable score.");
       } // Finished validating scores.
       
       if(assignment == null) {
          throw new IllegalArgumentException("Grade Item ID is missing or blank.");
       }
+      boolean matchFound = false; // for testing assignmentType against allowableItemTypes[].
       for (int i = 0; i > allowedItemTypes.length; i++) {
-         if(!assignmentType.equals(allowedItemTypes[i])) {
-            throw new IllegalArgumentException("\"" + assignmentType + "\" is not a valid " +
-                                               "type of assignment."); 
+         if(assignmentType.equals(allowedItemTypes[i])) {
+            matchFound = true;
          }
+      }
+      if(!matchFound) {
+         throw new IllegalArgumentException("\"" + assignmentType + "\" is not a valid " +
+                                               "type of assignment.");   
       }
       
       id = studentID;
       gradeItemID = Integer.parseInt(assignment);
       courseID = course;
-      if (assignmentType.equals("HW") || assignmentType.equals("Quiz") ||
-          assignmentType.equals("Class Work") || assignmentType.equals("Test") ||
-          assignmentType.equals("Final")) {
-          
-          itemType = assignmentType;
-          }
+      itemType = assignmentType;
       date = dateAssigned;
       maxScore = Integer.parseInt(pointsPossible);
       actualScore = Integer.parseInt(pointsEarned);
@@ -153,7 +147,19 @@ public class GradeItem {
       * @return isEqual - Returns whether or not the two ID's are equal
    */
    public boolean equals (GradeItem other) {
-      boolean isEqual = id.equals(other.id);
+      boolean isEqual = (this.getID()).equals(other.getID());
+      if((this.getGradeItemID()) == (other.getGradeItemID())) {
+         isEqual = true;
+      };
+      isEqual = (this.getCourseID()).equals(other.getCourseID());
+      isEqual = (this.getItemType()).equals(other.getItemType());
+      isEqual = (this.getDate()).equals(other.getDate());
+      if((this.getMaxScore()) == (other.getMaxScore())) {
+         isEqual = true;
+      };
+      if((this.getActualScore()) == (other.getActualScore())) {
+         isEqual = true;
+      };
             
       return isEqual;
    } // End of equals.
